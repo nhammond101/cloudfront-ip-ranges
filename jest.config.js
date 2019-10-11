@@ -23,8 +23,5 @@ module.exports = {
   ],
   testRegex: "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
   testEnvironment: "node",
-  transformIgnorePatterns: [
-    "<rootDir>/node_modules/(?!@waracle)"
-  ],
   verbose: true
-}
+};

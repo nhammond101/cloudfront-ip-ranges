@@ -1,5 +1,5 @@
 import { Application } from 'express';
-import https from 'https';
+import * as https from 'https';
 import { Logger } from './logger';
 import { IServicePrefix } from './index.d';
 
@@ -25,7 +25,7 @@ export class CloudfrontService {
 
         res.on('end', () => {
           // @ts-ignore
-          resolve(body.trim().split('\n'));
+          resolve(JSON.parse(body));
         });
       })
         .on('error', (error) => {
@@ -34,41 +34,21 @@ export class CloudfrontService {
     });
   }
 
-  public async updateIPs(): Promise<string[]> {
+  public async getIpRange(service: string = 'CLOUDFRONT'): Promise<string[]> {
     const ips: string[] = [];
     try {
       const results = await this.getJSON();
-      ips.push(...results.prefixes.filter((p) => p.service === 'CLOUDFLARE').map(({ ip_prefix }) => ip_prefix));
+      ips.push(...results.prefixes.filter((p) => p.service === service).map(({ ip_prefix }) => ip_prefix));
     }
     catch (e) {
       this._logger.error(e);
     }
 
     return ips;
-    // return Promise.all(
-    //   Object.keys(this.apiUrl).map(async (key) => {
-    //     return this.getJSON()
-    //       .then((result) => {
-    //         return [key, result];
-    //       });
-    //   }),
-    // )
-    //   .then((results: IServicePrefix[]) => {
-    //     results.forEach((ipSet: string) => {
-    //       ips.push(ipSet);
-    //     });
-    //
-    //     // if (options.versioned) {
-    //     //   return ips;
-    //     // }
-    //     // else {
-    //     return Object.values(ips).reduce((accu, x) => accu.concat(x));
-    //     // }
-    //   });
   }
 
   public updateTrustProxy(expressApp: Application) {
-    return this.updateIPs()
+    return this.getIpRange()
       .then((ips: string[]) => {
         expressApp.set('trust proxy', ['loopback', ...ips]);
       });

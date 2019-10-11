@@ -159,3 +159,6 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
+# .idea project stuff
+.idea/
+
