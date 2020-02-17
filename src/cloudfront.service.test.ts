@@ -1,5 +1,5 @@
 import { CloudfrontService } from './cloudfront.service';
-
+jest.setTimeout(20000);
 describe('Cloudfront service', () => {
 
   let service: CloudfrontService;

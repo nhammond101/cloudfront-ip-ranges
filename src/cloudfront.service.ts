@@ -50,7 +50,7 @@ export class CloudfrontService {
   public updateTrustProxy(expressApp: Application) {
     return this.getIpRange()
       .then((ips: string[]) => {
-        expressApp.set('trust proxy', ['loopback', ...ips]);
+        expressApp.set('trust proxy', ['loopback', 'linklocal', 'uniquelocal', ...ips]);
       });
   }
 }

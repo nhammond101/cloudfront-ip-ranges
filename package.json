@@ -1,11 +1,12 @@
 {
   "name": "cloudfront-ip-ranges",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Get Cloudfront IPs for use in trust proxy configurations",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "tsc",
+    "build": "tsc -d",
     "build:watch": "npm run build -- -w",
     "clean:all": "npm run clean && npm run clean:modules && npm run clean:tests && npm clean:coverage",
     "clean:coverage": "rimraf coverage",
