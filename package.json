@@ -24,11 +24,11 @@
     "test": "npm run test:unit",
     "pretest:unit": "jest --clearCache",
     "test:unit": "jest --verbose --coverage",
-    "version": "npm --no-git-tag-version --allow-same-version version"
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://github.com/nhammond101/cloudfront-ip-ranges.git"
+    "url": "https://github.com/nhammond101/cloudfront-ip-ranges.git"
   },
   "keywords": [
     "cloudfront",
@@ -63,7 +63,8 @@
     "tslint": "^5.20.0",
     "tslint-config-airbnb": "^5.11.2",
     "tslint-eslint-rules": "^5.4.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.6.4",
+    "semantic-release": "^17.0.7"
   },
   "engines": {
     "node": ">10"
@@ -83,6 +84,5 @@
       "npm run lint -- --fix --",
       "git add"
     ]
-  },
-  "types": "dist/index.d.ts"
+  }
 }

@@ -162,3 +162,4 @@ typings/
 # .idea project stuff
 .idea/
 
+/junit.xml

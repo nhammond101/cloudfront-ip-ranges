@@ -3,6 +3,7 @@
 [![npm](https://img.shields.io/npm/v/cloudfront-ip-ranges.svg?style=flat-square)](https://www.npmjs.com/package/cloudfront-ip-ranges)
 ![npm](https://img.shields.io/npm/dm/cloudfront-ip-ranges.svg?style=flat-square)
 ![Dependents (via libraries.io)](https://img.shields.io/librariesio/dependents/npm/cloudfront-ip-ranges.svg?style=flat-square)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 Get Cloudfront IPs for use in trust proxy configurations.
 
@@ -57,4 +58,6 @@ updateTrustProxy | Takes an Express app instance as an argument. Returns `Promis
 
 Version | Release notes
 ------------ | -------------
+0.1.2 | Dependency updates
+0.1.1 | Added local IP to trust proxy
 0.1.0 | Initial release.
