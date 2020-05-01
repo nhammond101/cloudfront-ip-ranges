@@ -1,11 +1,15 @@
-import chalk from 'chalk';
+import {
+  bold,
+  cyan,
+  red,
+} from 'chalk';
 import * as debug from 'debug';
 
 const colours = {
-  debug: chalk.cyan,
-  info: chalk.bold.cyan,
-  warn: chalk.red,
-  error: chalk.bold.red,
+  debug: cyan,
+  info: bold.cyan,
+  warn: red,
+  error: bold.red,
 };
 
 export class Logger {
@@ -22,19 +26,19 @@ export class Logger {
     this._warn = debug(`cloudfront-ip-range:${namespace}:warn`);
   }
 
-  public info(...args:any[]): void {
+  public info(...args: any[]): void {
     this._info(colours.info(args[0]), ...args.splice(1));
   }
 
-  public debug(...args:any[]): void {
+  public debug(...args: any[]): void {
     this._debug(colours.debug(args[0]), ...args.splice(1));
   }
 
-  public warn(...args:any[]): void {
+  public warn(...args: any[]): void {
     this._warn(colours.warn(args[0]), ...args.splice(1));
   }
 
-  public error(...args:any[]): void {
+  public error(...args: any[]): void {
     this._error(colours.error(args[0]), ...args.splice(1));
   }
 }
