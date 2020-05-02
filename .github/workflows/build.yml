@@ -1,6 +1,9 @@
-name: Release
+name: Build
 
 on:
+  pull_request:
+    branches:
+      - master
   push:
     branches:
       - master
@@ -20,16 +23,8 @@ jobs:
         run: npm ci
       - name: Test
         run: npm test
-
-  publish-npm:
-    needs: release
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-      - run: npm publish
+      - name: Release
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          GITHUB_TOKEN: ${{ secrets.gh_token }}
+          NPM_TOKEN: ${{ secrets.npm_token }}
+        run: npx semantic-release
