@@ -163,3 +163,4 @@ typings/
 .idea/
 
 /junit.xml
+/dist/
