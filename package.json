@@ -51,7 +51,7 @@
     "@types/jest": "26.0.10",
     "@types/node": "12.7.12",
     "@types/rimraf": "2.0.2",
-    "husky": "3.0.8",
+    "husky": "4.3.0",
     "jest": "26.4.2",
     "jest-coverage-badges": "1.1.2",
     "jest-each": "26.4.2",
