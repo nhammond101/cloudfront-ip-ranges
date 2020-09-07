@@ -64,7 +64,7 @@
     "tslint-config-airbnb": "5.11.2",
     "tslint-eslint-rules": "5.4.0",
     "typescript": "3.6.4",
-    "semantic-release": "17.0.7"
+    "semantic-release": "17.1.1"
   },
   "engines": {
     "node": ">10"
