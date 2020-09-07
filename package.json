@@ -1,6 +1,6 @@
 {
   "name": "cloudfront-ip-ranges",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Get Cloudfront IPs for use in trust proxy configurations",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
