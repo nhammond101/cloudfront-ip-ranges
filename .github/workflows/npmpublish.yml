@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'next'
+      - 'latest'
 
 jobs:
   release:
@@ -41,9 +42,10 @@ jobs:
         run: npm ci
       - name: Semantic Release
         run: npm run semantic-release
-      - name: Build
-        run: npm run build
-      - name: Publish to npm
-        run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          GH_TOKEN: ${{secrets.GH_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+      - name: Publish to npm (${GITHUB_REF##*/})
+        run: npm publish --tag ${GITHUB_REF##*/}
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
