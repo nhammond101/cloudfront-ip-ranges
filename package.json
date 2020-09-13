@@ -18,7 +18,7 @@
     "lint:all": "npm run lint -- 'src/**/*.ts'",
     "lint:staged": "lint-staged",
     "prepublish": "npm run build",
-    "pretest:unit": "jest --clearCache",
+    "pretest": "jest --clearCache",
     "test": "jest --coverage",
     "semantic-release": "semantic-release"
   },
@@ -71,7 +71,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm run build && npm run test:unit"
+      "pre-push": "npm run build && npm run test"
     }
   },
   "lint-staged": {
