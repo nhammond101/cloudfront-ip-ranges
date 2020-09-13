@@ -9,22 +9,25 @@ on:
       - main
 
 jobs:
-  release:
-    name: Release
+
+  build:
+    name: Test and Build
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ 10, 12, 14 ]
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          # The Node.js version to configure
+          node-version: ${{ matrix.node }}
       - name: Install dependencies
         run: npm ci
+      - name: Lint
+        run: npm run lint:all
       - name: Test
         run: npm test
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.gh_token }}
-          NPM_TOKEN: ${{ secrets.npm_token }}
-        run: npx semantic-release
+      - name: Build
+        run: npm run build

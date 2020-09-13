@@ -3,11 +3,31 @@ name: Release
 on:
   push:
     branches:
-      - main
+      - 'release/*'
 
 jobs:
   release:
-    name: Release
+    name: Build release candidate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          # The Node.js version to configure
+          node-version: 12
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint:all
+      - name: Test
+        run: npm test
+      - name: Build
+        run: npm run build
+
+  publish-npm:
+    name: Publish to npm
+    needs: release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -15,21 +35,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
+          # The Node.js version to configure
           node-version: 12
       - name: Install dependencies
         run: npm ci
-      - name: Test
-        run: npm test
-
-  publish-npm:
-    needs: release
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-      - run: npm publish
+      - name: Publish to npm
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
