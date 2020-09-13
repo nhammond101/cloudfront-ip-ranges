@@ -1,5 +1,7 @@
 {
   "branches":[
-    "main"
-  ]
+    "main",
+    "next"
+  ],
+  "debug": true
 }
