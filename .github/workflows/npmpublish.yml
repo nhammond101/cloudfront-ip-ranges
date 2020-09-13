@@ -45,6 +45,8 @@ jobs:
         run: npm ci
       - name: Semantic Release
         run: npm run semantic-release
+      - name: Build
+        run: npm run build
       - name: Publish to npm
         run: npm publish
         env:
