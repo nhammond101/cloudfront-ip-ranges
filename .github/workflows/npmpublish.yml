@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           # The Node.js version to configure
-          node-version: 12
+          node-version: 14
       - name: Install dependencies
         run: npm ci
       - name: Lint
@@ -37,7 +37,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           # The Node.js version to configure
-          node-version: 12
+          node-version: 14
       - name: Install dependencies
         run: npm ci
       - name: Semantic Release
