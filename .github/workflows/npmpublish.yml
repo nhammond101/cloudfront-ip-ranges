@@ -3,7 +3,8 @@ name: Release
 on:
   push:
     branches:
-      - 'release/*'
+      - 'next'
+      - 'latest'
 
 jobs:
   release:
@@ -15,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           # The Node.js version to configure
-          node-version: 12
+          node-version: 14
       - name: Install dependencies
         run: npm ci
       - name: Lint
@@ -36,10 +37,15 @@ jobs:
         uses: actions/setup-node@v2
         with:
           # The Node.js version to configure
-          node-version: 12
+          node-version: 14
       - name: Install dependencies
         run: npm ci
-      - name: Publish to npm
-        run: npm publish
+      - name: Semantic Release
+        run: npm run semantic-release
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          GH_TOKEN: ${{secrets.GH_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+      - name: Publish to npm (${GITHUB_REF##*/})
+        run: npm publish --tag ${GITHUB_REF##*/}
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
