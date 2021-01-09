@@ -17,7 +17,7 @@
     "lint": "tslint -c tslint.json",
     "lint:all": "npm run lint -- 'src/**/*.ts'",
     "lint:staged": "lint-staged",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "pretest": "jest --clearCache",
     "test": "jest --coverage",
     "semantic-release": "semantic-release"
