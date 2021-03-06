@@ -25,27 +25,8 @@ jobs:
         run: npm test
       - name: Build
         run: npm run build
-
-  publish-npm:
-    name: Publish to npm
-    needs: release
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          # The Node.js version to configure
-          node-version: 14
-      - name: Install dependencies
-        run: npm ci
       - name: Semantic Release
-        run: npm run semantic-release
+        uses: cycjimmy/semantic-release-action@v2
         env:
-          GH_TOKEN: ${{secrets.GH_TOKEN}}
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-      - name: Publish to npm (${GITHUB_REF##*/})
-        run: npm publish --tag ${GITHUB_REF##*/}
-        env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
