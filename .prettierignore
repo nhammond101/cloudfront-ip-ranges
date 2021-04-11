@@ -1,5 +1,13 @@
-coverage
-dist
-gen
-node_modules
-test-reports
+# Created by .ignore support plugin (hsz.mobi)
+**/tests/fixtures/**/*
+**/tests/fixture-project/**/*
+**/dist
+**/coverage
+**/shared-fixtures
+**/.vscode
+**/.nyc_output
+**/.vs
+.github
+
+# Ignore CHANGELOG.md files to avoid issues with automated release job
+CHANGELOG.md

@@ -13,15 +13,13 @@
     "clean:modules": "rimraf node_modules && rimraf dist/node_modules",
     "clean:tests": "rimraf test-reports",
     "clean": "rimraf dist",
-    "postdeps:update": "npm install",
-    "lint": "eslint -c .eslintrc.js",
-    "lint:all": "npm run lint -- 'src/**/*.ts'",
+    "format": "lint-staged --config .lintstagedrc.json",
+    "lint": "eslint -c .eslintrc.js .",
     "lint:staged": "lint-staged",
-    "prepare": "husky install && npm run build",
+    "prepare": "npm run build",
     "pretest": "jest --clearCache",
     "test": "jest --coverage",
-    "semantic-release": "semantic-release",
-    "format": "lint-staged --config .lintstagedrc.json"
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -55,6 +53,7 @@
     "eslint": "8.34.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-prettier": "8.6.0",
+    "eslint-plugin-jest": "24.1.9",
     "husky": "7.0.4",
     "jest": "26.6.3",
     "jest-junit": "12.3.0",
@@ -70,6 +69,7 @@
   },
   "dependencies": {
     "chalk": "4.1.2",
-    "debug": "4.3.4"
+    "debug": "4.3.4",
+    "express": "4.17.1"
   }
 }
