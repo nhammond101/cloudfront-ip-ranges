@@ -9,6 +9,8 @@ Get Cloudfront IPs for use in trust proxy configurations.
 
 This package will be updated if Cloudfront ever decides to change the endpoints for retrieving current IPs. We will most likely never see a breaking change for this package.
 
+_V2 drops support for Node v8_
+
 <br>
 <p align="center">
   <img width="460" src="https://github.com/nhammond101/cloudfront-ip-ranges/raw/main/README-image.png?raw=true">
@@ -16,7 +18,7 @@ This package will be updated if Cloudfront ever decides to change the endpoints 
 
 ## Install
 
-Requires node `8` or newer, but only [LTS](https://nodejs.org/en/about/releases/) are officially supported .
+Requires node `10` or newer, but only [LTS](https://nodejs.org/en/about/releases/) are officially supported .
 
     npm install --save cloudfront-ip-ranges
 

@@ -52,14 +52,14 @@ export class CloudfrontService {
     return ips;
   }
 
-  public updateTrustProxy(expressApp: Application) {
-    return this.getIpRange().then((ips: string[]) => {
-      expressApp.set('trust proxy', [
-        'loopback',
-        'linklocal',
-        'uniquelocal',
-        ...ips,
-      ]);
-    });
+  public async updateTrustProxy(expressApp: Application) {
+    const ips = await this.getIpRange();
+
+    expressApp.set('trust proxy', [
+      'loopback',
+      'linklocal',
+      'uniquelocal',
+      ...ips,
+    ]);
   }
 }

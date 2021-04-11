@@ -69,7 +69,10 @@
   },
   "dependencies": {
     "chalk": "4.1.2",
-    "debug": "4.3.4",
+    "debug": "4.3.4"
+  },
+  "optionalDependencies": {
+    "@types/express": "4.17.11",
     "express": "4.17.1"
   }
 }
