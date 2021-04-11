@@ -1,0 +1,24 @@
+{
+  "extends": ["config:base"],
+  "baseBranches": ["main", "next"],
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "depTypeList": ["optionalDependencies"],
+      "addLabels": ["optional"]
+    },
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "updateTypes": ["major"],
+      "labels": ["major"]
+    }
+  ],
+  "schedule": ["after 6pm and before 8am every weekday", "every weekend"],
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "assignees": ["@nhammond101"]
+  }
+}
