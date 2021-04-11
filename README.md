@@ -31,7 +31,7 @@ It is recommended to use `setInterval` for updating the IP list periodically.
     const cfIPranges = require('cloudfront-ip-ranges')
 
     cfIPranges.updateTrustProxy(app)
-    
+
     setInterval(() => {
       cfIPranges.updateTrustProxy(app)
     }, 1000*60*60*12)
@@ -41,7 +41,7 @@ It is recommended to use `setInterval` for updating the IP list periodically.
 Useful if you need to list other proxies alongside the Cloudfront ones.
 
     const cfIPranges = require('cloudfront-ip-ranges')
-    
+
     cfIPranges.updateIPs()
       .then((ips) => {
         app.set('trust proxy', ['loopback', ...ips])
@@ -49,15 +49,15 @@ Useful if you need to list other proxies alongside the Cloudfront ones.
 
 ## API
 
-Method | Info
------------- | -------------
-getIpRange | By default returns `Promise<string[]>`.
-updateTrustProxy | Takes an Express app instance as an argument. Returns `Promise<void>`.
+| Method           | Info                                                                   |
+| ---------------- | ---------------------------------------------------------------------- |
+| getIpRange       | By default returns `Promise<string[]>`.                                |
+| updateTrustProxy | Takes an Express app instance as an argument. Returns `Promise<void>`. |
 
 ## Changelog
 
-Version | Release notes
------------- | -------------
-0.1.2 | Dependency updates
-0.1.1 | Added local IP to trust proxy
-0.1.0 | Initial release.
+| Version | Release notes                 |
+| ------- | ----------------------------- |
+| 0.1.2   | Dependency updates            |
+| 0.1.1   | Added local IP to trust proxy |
+| 0.1.0   | Initial release.              |

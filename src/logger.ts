@@ -1,8 +1,4 @@
-import {
-  bold,
-  cyan,
-  red,
-} from 'chalk';
+import { bold, cyan, red } from 'chalk';
 import * as debug from 'debug';
 
 const colours = {
@@ -13,7 +9,6 @@ const colours = {
 };
 
 export class Logger {
-
   private readonly _info: debug.IDebugger;
   private readonly _debug: debug.IDebugger;
   private readonly _error: debug.IDebugger;

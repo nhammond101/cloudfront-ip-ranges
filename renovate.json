@@ -1,52 +1,24 @@
 {
-  "extends": [
-    "config:base"
-  ],
-  "baseBranches": [
-    "main",
-    "next"
-  ],
-  "labels": [
-    "dependencies"
-  ],
+  "extends": ["config:base"],
+  "baseBranches": ["main", "next"],
+  "labels": ["dependencies"],
   "packageRules": [
     {
-      "depTypeList": [
-        "optionalDependencies"
-      ],
-      "addLabels": [
-        "optional"
-      ]
+      "depTypeList": ["optionalDependencies"],
+      "addLabels": ["optional"]
     },
     {
-      "updateTypes": [
-        "minor",
-        "patch",
-        "pin",
-        "digest"
-      ],
+      "updateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     },
     {
-      "updateTypes": [
-        "major"
-      ],
-      "labels": [
-        "major"
-      ]
+      "updateTypes": ["major"],
+      "labels": ["major"]
     }
   ],
-  "schedule": [
-    "after 6pm and before 8am every weekday",
-    "every weekend"
-  ],
+  "schedule": ["after 6pm and before 8am every weekday", "every weekend"],
   "vulnerabilityAlerts": {
-    "labels": [
-      "security"
-    ],
-    "assignees": [
-      "@nhammond101"
-    ]
+    "labels": ["security"],
+    "assignees": ["@nhammond101"]
   }
 }
-
