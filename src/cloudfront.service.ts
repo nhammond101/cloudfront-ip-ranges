@@ -27,7 +27,6 @@ export class CloudfrontService {
           });
 
           res.on('end', () => {
-            // @ts-ignore
             resolve(JSON.parse(body));
           });
         })
@@ -37,8 +36,7 @@ export class CloudfrontService {
     });
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
-  public async getIpRange(service: string = 'CLOUDFRONT'): Promise<string[]> {
+  public async getIpRange(service = 'CLOUDFRONT'): Promise<string[]> {
     const ips: string[] = [];
     try {
       const results = await this.getJSON();
@@ -55,14 +53,14 @@ export class CloudfrontService {
     return ips;
   }
 
-  public updateTrustProxy(expressApp: Application) {
-    return this.getIpRange().then((ips: string[]) => {
-      expressApp.set('trust proxy', [
-        'loopback',
-        'linklocal',
-        'uniquelocal',
-        ...ips,
-      ]);
-    });
+  public async updateTrustProxy(expressApp: Application) {
+    const ips = await this.getIpRange();
+
+    expressApp.set('trust proxy', [
+      'loopback',
+      'linklocal',
+      'uniquelocal',
+      ...ips,
+    ]);
   }
 }
