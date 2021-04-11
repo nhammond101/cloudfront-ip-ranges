@@ -1,27 +1,18 @@
 module.exports = {
   collectCoverage: false,
-  coverageReporters: [
-    "json-summary",
-    "lcov",
-    "text"
-  ],
-  moduleFileExtensions: [
-    "ts",
-    "tsx",
-    "js",
-    "json"
-  ],
-  preset: "ts-jest",
+  coverageReporters: ['json-summary', 'lcov', 'text'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
+  preset: 'ts-jest',
   reporters: [
-    "default",
+    'default',
     [
-      "jest-junit",
+      'jest-junit',
       {
-        output: "./test-reports/junit.xml"
-      }
-    ]
+        output: './test-reports/junit.xml',
+      },
+    ],
   ],
-  testRegex: "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-  testEnvironment: "node",
-  verbose: true
+  testRegex: '(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$',
+  testEnvironment: 'node',
+  verbose: true,
 };
