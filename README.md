@@ -20,7 +20,9 @@ _V2 drops support for Node v8_
 
 Requires node `10` or newer, but only [LTS](https://nodejs.org/en/about/releases/) are officially supported .
 
-    npm install --save cloudfront-ip-ranges
+```shell
+npm install --save cloudfront-ip-ranges
+```
 
 ## Usage
 
@@ -28,26 +30,39 @@ For use in an Express environment please see [Express documentation on trust pro
 
 It is recommended to use `setInterval` for updating the IP list periodically.
 
-#### Directly update trust proxies for an Express app
+### Directly update trust proxies for an Express app
 
-    const cfIPranges = require('cloudfront-ip-ranges')
+```javascript
+const cfIPranges = require('cloudfront-ip-ranges');
 
-    cfIPranges.updateTrustProxy(app)
+cfIPranges.updateTrustProxy(app);
 
-    setInterval(() => {
-      cfIPranges.updateTrustProxy(app)
-    }, 1000*60*60*12)
+setInterval(() => {
+  cfIPranges.updateTrustProxy(app);
+}, 1000 * 60 * 60 * 12);
+```
 
-#### Getting a list of IPs and updating trust proxies manually
+### Getting a list of IPs and updating trust proxies manually
 
 Useful if you need to list other proxies alongside the Cloudfront ones.
 
-    const cfIPranges = require('cloudfront-ip-ranges')
+```javascript
+const cfIPranges = require('cloudfront-ip-ranges');
 
-    cfIPranges.updateIPs()
-      .then((ips) => {
-        app.set('trust proxy', ['loopback', ...ips])
-      })
+cfIPranges.updateIPs().then(ips => {
+  app.set('trust proxy', ['loopback', ...ips]);
+});
+```
+
+### ES6
+
+You can import the module like so:
+
+```javascript
+import {CloudfrontService} from "cloudfront-ip-ranges";
+
+new CloudfrontService().getIpRange().then( (ips)=> ...);
+```
 
 ## API
 
