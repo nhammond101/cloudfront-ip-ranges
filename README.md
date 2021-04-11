@@ -11,12 +11,12 @@ This package will be updated if Cloudfront ever decides to change the endpoints 
 
 <br>
 <p align="center">
-  <img width="460" src="https://github.com/nhammond101/cloudfront-ip-ranges/raw/master/README-image.png?raw=true">
+  <img width="460" src="https://github.com/nhammond101/cloudfront-ip-ranges/raw/main/README-image.png?raw=true">
 </p>
 
 ## Install
 
-Requires node `8` or newer.
+Requires node `8` or newer, but only [LTS](https://nodejs.org/en/about/releases/) are officially supported .
 
     npm install --save cloudfront-ip-ranges
 
@@ -56,8 +56,4 @@ Useful if you need to list other proxies alongside the Cloudfront ones.
 
 ## Changelog
 
-| Version | Release notes                 |
-| ------- | ----------------------------- |
-| 0.1.2   | Dependency updates            |
-| 0.1.1   | Added local IP to trust proxy |
-| 0.1.0   | Initial release.              |
+see [CHANGELOG.md](./CHANGELOG.md)
