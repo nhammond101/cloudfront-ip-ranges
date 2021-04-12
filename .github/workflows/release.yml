@@ -4,11 +4,12 @@ on:
   push:
     branches:
       - 'main'
+      - 'next'
 
 jobs:
 
-  build:
-    name: Test and Build and Release new candidate
+  bump-version:
+    name: Version increment
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -16,16 +17,12 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           # The Node.js version to configure
-          node-version: 14
+          node-version: 12
       - name: Install dependencies
         run: npm ci
-      - name: Lint
-        run: npm run lint:all
       - name: Test
         run: npm test
-      - name: Build
-        run: npm run build
-      - name: Semantic Release
+      - name: Release
         uses: cycjimmy/semantic-release-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

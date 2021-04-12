@@ -3,24 +3,14 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "declaration": true,
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2017", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "./dist",
-    "paths": {
-      "*": [
-        "node_modules/*"
-      ]
-    },
     "sourceMap": true,
     "target": "es6",
-    "typeRoots": [
-      "node_modules/@types"
-    ]
+    "typeRoots": ["node_modules/@types"]
   },
   "exclude": [
     "test.ts",
@@ -29,7 +19,5 @@
     "**/*.test.helper.ts",
     "**/__mocks__"
   ],
-  "include": [
-    "src/**/*.ts"
-  ]
+  "include": ["src/*.ts"]
 }
