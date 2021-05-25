@@ -67,7 +67,7 @@
     "debug": "4.3.1"
   },
   "optionalDependencies": {
-    "@types/express": "4.17.11",
+    "@types/express": "4.17.12",
     "express": "4.17.1"
   }
 }
