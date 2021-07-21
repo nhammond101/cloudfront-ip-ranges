@@ -48,7 +48,7 @@
     "eslint": "7.31.0",
     "eslint-config-waracle": "2.0.0",
     "eslint-import-resolver-typescript": "2.4.0",
-    "eslint-plugin-jest": "24.3.6",
+    "eslint-plugin-jest": "24.3.7",
     "husky": "4.3.8",
     "jest": "27.0.6",
     "jest-each": "27.0.6",
