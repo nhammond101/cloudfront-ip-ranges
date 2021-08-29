@@ -11,7 +11,7 @@ This package will be updated if Cloudfront ever decides to change the endpoints 
 
 <br>
 <p align="center">
-  <img width="460" src="https://github.com/nhammond101/cloudfront-ip-ranges/raw/master/README-image.png?raw=true">
+  <img width="460" src="https://github.com/nhammond101/cloudfront-ip-ranges/raw/main/README-image.png?raw=true">
 </p>
 
 ## Install
