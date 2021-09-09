@@ -53,7 +53,7 @@
     "jest": "27.1.1",
     "jest-each": "27.1.1",
     "jest-junit": "12.2.0",
-    "prettier": "2.3.2",
+    "prettier": "2.4.0",
     "rimraf": "3.0.2",
     "semantic-release": "17.4.7",
     "ts-jest": "27.0.5",
