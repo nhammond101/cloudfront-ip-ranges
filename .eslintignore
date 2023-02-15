@@ -1,3 +1,4 @@
+# Created by .ignore support plugin (hsz.mobi)
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
@@ -8,9 +9,6 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
-
-# AWS User-specific
-.idea/**/aws.xml
 
 # Generated files
 .idea/**/contentModel.xml
@@ -62,9 +60,6 @@ atlassian-ide-plugin.xml
 # Cursive Clojure plugin
 .idea/replstate.xml
 
-# SonarLint plugin
-.idea/sonarlint/
-
 # Crashlytics plugin (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml
 crashlytics.properties
@@ -85,7 +80,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
-.pnpm-debug.log*
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -134,9 +128,6 @@ web_modules/
 # Optional eslint cache
 .eslintcache
 
-# Optional stylelint cache
-.stylelintcache
-
 # Microbundle cache
 .rpt2_cache/
 .rts2_cache_cjs/
@@ -152,12 +143,9 @@ web_modules/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variable files
+# dotenv environment variables file
 .env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
+.env.test
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -179,12 +167,6 @@ dist
 
 # vuepress build output
 .vuepress/dist
-
-# vuepress v2.x temp and cache directory
-.temp
-
-# Docusaurus cache and generated files
-.docusaurus
 
 # Serverless directories
 .serverless/
@@ -208,6 +190,9 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+## Custom project exclusions
+*.js
+!src/*
 
 .eslintrc.js
 

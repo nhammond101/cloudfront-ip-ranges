@@ -3,7 +3,7 @@ name: Build
 on:
   pull_request:
     branches:
-      - main
+      - next
 
 jobs:
 
@@ -16,14 +16,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           # The Node.js version to configure
           node-version: ${{ matrix.node }}
       - name: Install dependencies
         run: npm ci
       - name: Lint
-        run: npm run lint:all
+        run: npm run lint
       - name: Test
         run: npm test
       - name: Build
