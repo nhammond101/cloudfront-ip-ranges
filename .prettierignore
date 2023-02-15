@@ -1,0 +1,5 @@
+coverage
+dist
+gen
+node_modules
+test-reports

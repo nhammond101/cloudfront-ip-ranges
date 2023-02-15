@@ -13,10 +13,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          # The Node.js version to configure
-          node-version: 14
+          node-version-file: '.nvmrc'
       - name: Install dependencies
         run: npm ci
       - name: Lint
@@ -26,7 +25,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v2
+        uses: cycjimmy/semantic-release-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
