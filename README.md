@@ -49,7 +49,7 @@ Useful if you need to list other proxies alongside the Cloudfront ones.
 ```javascript
 const cfIPranges = require('cloudfront-ip-ranges');
 
-cfIPranges.updateIPs().then(ips => {
+cfIPranges.updateIPs().then((ips) => {
   app.set('trust proxy', ['loopback', ...ips]);
 });
 ```
